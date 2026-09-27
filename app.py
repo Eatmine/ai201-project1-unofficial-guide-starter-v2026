@@ -10,7 +10,7 @@ The Unofficial Guide — command line.
     python app.py corpora                list the available corpora
 
 Every command takes --corpus NAME to work with a different corpus without
-editing config.py.
+editing config.py. I was hereeeeee! In my Beyonce's voice!
 """
 
 import argparse
