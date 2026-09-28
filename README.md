@@ -134,18 +134,6 @@ real question (0.510).
 | Where will Beyonce announce her next album? | no | 0.750 |
 | Do you carry any Beyonce's merch? | no | 0.903 |
 
-<!-- The number you set in config.py, and how you got there.
-
-     You ran five questions your corpus covers and the five in OUT_OF_SCOPE
-     that it clearly doesn't, and wrote down the best distance for each. What
-     did those two groups look like? Where was the gap? Put the actual numbers
-     here — the table below wants all ten rows.
-
-     Milestone 4. -->
-
-| Question | In corpus? | Best distance |
-|---|---|---|
-|  |  |  |
 
 ## How I Used AI
 
