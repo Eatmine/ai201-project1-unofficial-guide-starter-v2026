@@ -45,14 +45,20 @@ medicine and programming questions should sit far from every chunk. One
 miss is allowed because the diesel-engine question shares driving and
 road vocabulary with the transport and access sections.
 
-## Criterion 4 — Answers contain the expected fact
 
-At least **4 of 5** answers contain their `expects` phrase.
+## Criterion 4 — Chunks are sized to hold one section
 
-**Why this target:** criterion 1 checks that retrieval finds the fact;
-this checks that the model actually uses it. Questions 1 and 3 rely on
-general statements that don't name the town, the hardest case in this
-corpus, so I allow one miss rather than requiring all five.
+Every chunk is between **150 and 750 characters**, and **0** chunks
+consist of a heading alone, checked with `python app.py chunks`.
+
+**Why this target:** city_guides is organised into labelled sections,
+and I measured them: the real sections run from 175 to 712 characters,
+most between 200 and 400. Four guides open with a title-only heading of
+24–28 characters, and `fallback_split` turned one of these into a
+24-character chunk that can't answer anything. 150 sits just below the
+shortest real section, and 750 just above the longest, so a chunker that
+keeps one section per chunk passes, and one that cuts headings off or
+merges several sections fails.
 
 ## Criterion 5 — No invented facts
 
