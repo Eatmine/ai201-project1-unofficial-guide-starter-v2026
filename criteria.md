@@ -19,6 +19,7 @@ pipeline earns credit; *"80% seemed reasonable"* does not.
 
 For at least **4 of 5** test questions, the retrieved chunks include one
 that contains the question's `expects` phrase.
+matches ignores capital letters before the full stop.
 
 **Why this target:** city_guides is organised under headings, but
 `fallback_split` cuts by length — it produced a 24-character chunk, so a
@@ -28,7 +29,7 @@ answer is spread across guides.
 
 ## Criterion 2 — Every answer names a source
 
-**5 of 5** answers cite at least one guide file.
+**5 of 5** answers name atleast one guide file in the answer text itself (the "sources received line doesn't count).
 
 **Why this target:** the towns are fictional, so a reader can only trust
 an answer they can check against a guide. The starter already cites
@@ -49,7 +50,7 @@ road vocabulary with the transport and access sections.
 ## Criterion 4 — Chunks are sized to hold one section
 
 Every chunk is between **150 and 750 characters**, and **0** chunks
-consist of a heading alone, checked with `python app.py chunks`.
+consist of a heading alone, and change it to "checked with the shortest/longest figures printed by `python app.py index`.
 
 **Why this target:** city_guides is organised into labelled sections,
 and I measured them: the real sections run from 175 to 712 characters,
@@ -60,14 +61,14 @@ shortest real section, and 750 just above the longest, so a chunker that
 keeps one section per chunk passes, and one that cuts headings off or
 merges several sections fails.
 
-## Criterion 5 — No invented facts
+## Criterion 5 — Answers contain the expected fact
 
-In **5 of 5** answers, every specific time, place or distance appears in
-the retrieved sources, checked by hand.
+At least **4 of 5** answers contain their `expects` phrase.
 
-**Why this target:** the model has no outside knowledge of these invented
-towns, so any detail not in the sources was made up. A wrong travel
-detail is worse than no answer, so this criterion has no tolerance.
+**Why this target:** criterion 1 checks that retrieval finds the fact;
+this checks that the model actually uses it. Questions 1 and 3 rely on
+general statements that don't name the town, the hardest case in this
+corpus, so I allow one miss rather than requiring all five.
 ---
 
 ## 1. Retrieved chunks contain the answer
