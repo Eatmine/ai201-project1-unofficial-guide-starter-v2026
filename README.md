@@ -154,18 +154,19 @@ was working on and what was done. It gave me checklists of what to
 complete, which file to edit, and where to paste my output. But the
 commit steps never said to save my files first, and I noticed my commits
 could leave out edits still open in VS Code. I started saving before
-every commit, checked with `git status`, and turned on Auto Save.
+every commit, checked with git status, and turned on Auto Save.
 
 **2.** I asked Claude for grep commands to find the answer to each of my
-test questions, so I could write the `expects` phrases. For "When should
-I plan to visit Kestrelford?" it gave me `grep -in "kestrelford"
-guide_seasons.md`, which only found lines about the market, walkers and
-snow, not the best time to go. I told Claude I didn't think that search
-was robust, since it only finds lines that name the town. I searched
-further and found that the Kestrelford guide has its own "When to go"
-section, which says late spring and early autumn. I changed my
-`expects` phrase from "After May, June, September" to "late spring" and
-my source to `guide_kestrelford.md`.
+test questions, so I could write the expects phrases. For "When should
+I plan to visit Kestrelford?" it gave me a search for the word
+"kestrelford" in guide_seasons.md, which only found lines about the
+market, walkers and snow, not the best time to go. I told Claude I
+didn't think that search was robust, since it only finds lines that name
+the town. I searched further and found that the Kestrelford guide has
+its own "When to go" section, which says late spring and early autumn.
+I changed my expects phrase from "After May, June, September" to "late
+spring" and my source to guide_kestrelford.md.
+
 ---
 
 # Unit 2
