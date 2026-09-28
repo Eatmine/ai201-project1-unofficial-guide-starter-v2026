@@ -46,6 +46,10 @@ medicine and programming questions should sit far from every chunk. One
 miss is allowed because the diesel-engine question shares driving and
 road vocabulary with the transport and access sections.
 
+*Revised before testing:* I replaced four of the original out-of-scope
+questions (including the diesel-engine one) with my own, to test
+questions closer to everyday topics like shopping and music.
+
 
 ## Criterion 4 — Chunks are sized to hold one section
 

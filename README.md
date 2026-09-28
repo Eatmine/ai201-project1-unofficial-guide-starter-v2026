@@ -104,7 +104,25 @@ June and September for the beach without the crowds. July and August are busy an
 ```
 ```
 
-**My relevance cutoff:**
+**My relevance cutoff:**  My five real questions scored between
+0.438 and 0.510, and my five off-topic questions scored between 0.734
+and 0.903, so the gap is between 0.510 and 0.734. I chose 0.6, below the
+middle of that gap, because I want the RAG to be strict and not let
+random questions poke through. It still leaves room above my weakest
+real question (0.510).
+
+| Question | In corpus? | Best distance |
+|---|---|---|
+| When should I plan to visit Kestrelford? | yes | 0.438 |
+| A few of my friends require dietary accommodations, what restaurants cater to pescatarians? | yes | 0.510 |
+| When planning this vacation should I be concerned about restaurants kitchen closing early or days where restaurants aren't available? | yes | 0.453 |
+| A friend of mine requires accessibility, is Marchwood step-free? | yes | 0.509 |
+| Does Marchwood have the closest airport? | yes | 0.488 |
+| What is the capital of Mongolia? | no | 0.803 |
+| Is there an anime clothing store that sells sailor moon shirts? | no | 0.734 |
+| How do I change oil in my toyota camry? | no | 0.879 |
+| Where will Beyonce announce her next album? | no | 0.750 |
+| Do you carry any Beyonce's merch? | no | 0.903 |
 
 <!-- The number you set in config.py, and how you got there.
 

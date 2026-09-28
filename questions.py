@@ -43,10 +43,10 @@ QUESTIONS = [
 # the others. They cost no model calls: a refusal never reaches the model.
 OUT_OF_SCOPE = [
     "What is the capital of Mongolia?",
-    "How do I change the oil in a diesel engine?",
-    "Who won the 1994 World Cup?",
-    "What is the recommended dosage of ibuprofen for a headache?",
-    "How do I write a for loop in Rust?",
+    "Is there an anime clothing store that sells sailor moon shirts?",
+    "How do I change oil in my toyota camry?",
+    "Where will Beyonce announce her next album?",
+    "Do you carry any Beyonce's merch?",
 ]
 
 
