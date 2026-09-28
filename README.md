@@ -32,6 +32,7 @@
 **Chunk size:** one section per chunk (175–712 characters in this corpus)
 **Overlap:** 0
 
+the guides are split into labelled sections that each cover one topic, and the starter's 800-character windows cut across them and left a 24-character title on its own. Save
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
      reasonable" earns nothing. Point at something you noticed when you read
@@ -53,29 +54,42 @@
 
      Milestone 3. -->
 
-**Chunk 1** — source: `` — produced by: ``
+**Chunk 1** — source: `guide_accessibility.md#0` — produced by: `chunker.py::split_documents`
 
 ```
+# Getting around the region with limited mobility
+
+An honest assessment rather than a promotional one. Some of these places are
+difficult and it is better to know in advance.
 ```
 
-**Chunk 2** — source: `` — produced by: ``
+**Chunk 2** — source: ` guide_corry_vale.md#5` — produced by: `chuker.py ::split_documents`
 
-```
-```
+``` Where to stay
 
-**Chunk 3** — source: `` — produced by: ``
-
-```
+Perhaps thirty beds in the entire valley, spread across two pubs and a handful of farmhouse rooms. In summer these are booked months ahead. Camping is permitted on two marked fields and nowhere else.
 ```
 
-**Chunk 4** — source: `` — produced by: ``
+**Chunk 3** — source: `guide_givens_mill.md#2` — produced by: `chunker.py::split_documents`
 
 ```
+ Getting around
+
+Everything is on one street along the river. The mill is at one end and the church at the other, eight minutes apart. The riverside path continues in both directions for as far as you want to walk.
 ```
 
-**Chunk 5** — source: `` — produced by: ``
+**Chunk 4** — source: `guide_kestrelford.md#4` — produced by: `chunker.py::split_documents`
 
+```What to see
+
+The market square on a Saturday morning is the main event and has run continuously since the 1400s. The parish church has a 13th-century tower you can climb for £2. The old trackbed walk runs six miles to the next village along an easy gradient and is the best half-day here.
 ```
+
+**Chunk 5** — source: `guide_pellew_sands.md#6` — produced by: `chunker.py::split_documents`
+
+```When to go
+
+June and September for the beach without the crowds. July and August are busy and the town is at its most itself, for better and worse. Winter is bleak, largely closed, and has a following among people who like that sort of thing.
 ```
 
 ## Sample Answer
