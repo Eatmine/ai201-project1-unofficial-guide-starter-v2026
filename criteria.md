@@ -15,6 +15,53 @@ pipeline earns credit; *"80% seemed reasonable"* does not.
 > Missing your own targets next unit costs you nothing. Setting a target so
 > easy you can't miss it does.
 
+## Criterion 1 — Retrieved chunk contains the answer
+
+For at least **4 of 5** test questions, the retrieved chunks include one
+that contains the question's `expects` phrase.
+
+**Why this target:** city_guides is organised under headings, but
+`fallback_split` cuts by length — it produced a 24-character chunk, so a
+heading can be separated from the paragraph under it. One miss is allowed
+because question 3 asks about closing times across every town, so its
+answer is spread across guides.
+
+## Criterion 2 — Every answer names a source
+
+**5 of 5** answers cite at least one guide file.
+
+**Why this target:** the towns are fictional, so a reader can only trust
+an answer they can check against a guide. The starter already cites
+sources (my first Kestrelford answer ended with `guide_kestrelford.md`),
+so anything less than every answer would be a regression.
+
+## Criterion 3 — Gate stops out-of-corpus questions
+
+At least **4 of 5** `OUT_OF_SCOPE` questions are refused without
+reaching the model.
+
+**Why this target:** the guides cover one small coastal region, so sport,
+medicine and programming questions should sit far from every chunk. One
+miss is allowed because the diesel-engine question shares driving and
+road vocabulary with the transport and access sections.
+
+## Criterion 4 — Answers contain the expected fact
+
+At least **4 of 5** answers contain their `expects` phrase.
+
+**Why this target:** criterion 1 checks that retrieval finds the fact;
+this checks that the model actually uses it. Questions 1 and 3 rely on
+general statements that don't name the town, the hardest case in this
+corpus, so I allow one miss rather than requiring all five.
+
+## Criterion 5 — No invented facts
+
+In **5 of 5** answers, every specific time, place or distance appears in
+the retrieved sources, checked by hand.
+
+**Why this target:** the model has no outside knowledge of these invented
+towns, so any detail not in the sources was made up. A wrong travel
+detail is worse than no answer, so this criterion has no tolerance.
 ---
 
 ## 1. Retrieved chunks contain the answer
