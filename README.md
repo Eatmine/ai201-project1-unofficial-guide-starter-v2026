@@ -198,13 +198,13 @@ spring" and my source to guide_kestrelford.md.
 
      Milestone 2. -->
 
-| # | Criterion | Verdict | How I decided |
+| | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | Retrieved chunk contains the answer | MISSED | 3/5 in every run. Questions 1 and 5 never had their expects phrase in the retrieved chunks, and retrieval is deterministic, so all three runs were identical. |
+| 2 | Every answer names a source | MISSED | 3/5 in every run. The two misses were refusals ("I don't have enough information"), which name no guide. I counted them as misses because my criterion says every answer must name a source. |
+| 3 | Gate stops out-of-corpus questions | MET | 5/5 refused. The closest off-topic question scored 0.734, well above the 0.6 cutoff. |
+| 4 | Chunks between 150 and 750 characters, none heading-only | MET | The index line reported shortest 174 and longest 711, and every title-only heading was joined to the section below. |
+| 5 | Answers contain the expects phrase | MISSED | 1/5, 1/5, 2/5. Question 3's answer was correct but wrote "9 pm" instead of "9pm". I counted that as a miss because the phrase isn't in the answer; even counting it, the best would be 2/5. |
 
 ## Diagnoses
 
