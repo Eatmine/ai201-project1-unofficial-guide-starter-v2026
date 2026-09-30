@@ -266,10 +266,9 @@ Yes, you should be concerned. In Elder Ness, the single pub serves food only fro
 
 **What I changed:** added the guide's place name (e.g. "[Marchwood]") to the start of every chunk.
 
-**Why I picked it:**
+**Why I picked it:** Questions1 and 5 missed because section chunks like Kestrelford's "When to go" and Marchwood's "Getting there" never named their own town, so questions naming the town matched the introduction chunk instead of the section with the answer. Adding the place name to every chunk targets that directly. 
 
-<!-- Connect it to a specific diagnosis above in one sentence. If you can't,
-     you picked a fix because it sounded impressive. -->
+
 
 ### Run Log — After
 
