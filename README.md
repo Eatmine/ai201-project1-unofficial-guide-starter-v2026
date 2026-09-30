@@ -228,7 +228,7 @@ spring" and my source to guide_kestrelford.md.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** added the guide's place name (e.g. "[Marchwood]") to the start of every chunk.
 
 **Why I picked it:**
 
