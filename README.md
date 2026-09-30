@@ -318,17 +318,37 @@ likely the model wording it differently than a result of my change.
 
 ## What's Still Broken
 
-<!-- For each criterion still missed after your fix: what you'd do about it,
-     and why you stopped where you did.
+**Criterion 2 (4/5) and criterion 5 (4, 3, 3 of 5)** are still missed.
 
-     "I ran out of time" is fine if it's true. Pretending nothing is left is
-     not.
+Question 2 fails both. The Halden Bay seafood chunk is now the top
+result, but the model says the documents don't mention pescatarians,
+because that word never appears. This is a generation problem: the
+grounding instruction tells it to use only the documents, and it reads
+that too literally. I'd try adding a rule that lets it draw direct
+conclusions from what the documents say, without adding outside facts.
+I stopped because I was changing one thing at a time, and a prompt
+change would have been a second change measured in the same run.
 
-     Milestone 5. -->
+Question 5 still refuses in two of three runs. Answering "closest
+airport" needs two guides: Marchwood's (airport 20 minutes out) and
+Brightwater's (no airport, nearest 90 minutes away). My fix made
+retrieval favour chunks from the town named in the question, so only
+Marchwood's chunks came back. Fixing this would need retrieval to mix
+guides, for example by raising top-k or combining keyword and meaning
+search.
 
 ## What I'd Do Differently
 
-<!-- Knowing what you know now — which of your five criteria would you write
-     differently, and why?
+I'd write question 5 differently. "Does Marchwood have the closest
+airport?" needs a comparison between towns, so it tested more than one
+thing at once, and my expects phrase ("20 minutes") only checked half
+of the answer. "How far is Marchwood from the airport?" would have
+tested what the guide actually says.
 
-     Milestone 5. -->
+I'd make criterion 5 ignore spaces. Question 3's answer was correct in
+every run but failed twice because it wrote "9 pm" instead of "9pm", so
+the criterion was measuring formatting as well as content.
+
+I'd add a criterion that checks the cited guide is the right one.
+Criterion 2 only checks that a source is named, so a question could
+cite the wrong guide and still pass.
