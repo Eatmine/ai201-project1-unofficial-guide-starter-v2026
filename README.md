@@ -244,22 +244,36 @@ Yes, you should be concerned. In Elder Ness, the single pub serves food only fro
 
 ## Diagnoses
 
-<!-- For each miss: which stage caused it, and how. The stage alone isn't
-     enough — you need the mechanism.
+**Criterion 1 (3/5) — stage retrieval.** Questions 1 and 5 missed for the same
+reason. My chunker splits each guide at its headings, so a section like
+Marchwood's "## Getting there" became its own chunk, but the town's name
+only appears in the "# Marchwood" title, which ended up in the
+introduction chunk. A question naming Marchwood matched the introduction
+strongly and the "Getting there" section weakly, so the section with the
+answer (the airport, 20 minutes out) never made the top 5. Question 1
+failed the same way with Kestrelford's "When to go" section.
 
-     Not a diagnosis: "Question 3 didn't work."
-     A diagnosis:     "Question 3 asks about laundry costs. The answer is in
-                       one sentence that got split across two chunks, so
-                       neither chunk on its own contains it."
+**Criterion 2 (3/5) — stage generation, with retrieval upstream.** Both misses
+were refusals, and a refusal names no source. For question 5, the answer
+chunk wasn't retrieved, so the model correctly said it didn't
+have enough information. For question 2, the Halden Bay seafood chunk
+*was* retrieved, but the model refused anyway (see criterion 5).
+
+**Criterion 5 (1, 1, 2 of 5) — three causes.**
+- Questions 1 and 5: retrieval, as in criterion 1. The model never saw
+  the answer.
+- Question 2: generation. The Halden Bay seafood chunk was retrieved,
+  but the model said the documents don't mention pescatarians, because
+  that word never appears. The grounding instruction ("use only the
+  information in the documents") made it too literal to connect seafood
+  to pescatarian.
+- Question 3: measurement. The answer was correct, but wrote "9 pm" in
+  runs 1 and 2, which doesn't contain my expects phrase "9pm".
+
+**The pattern:** most misses trace back to one retrieval problem —
+section chunks that don't name their town. That is the one I chose to fix.
 
      The five stages: loading → chunking → embedding → retrieval → generation.
-
-     Look for a pattern. If three misses all ask about numbers, that's one
-     problem, not three.
-
-     Missed nothing? Say so, then say honestly whether your targets were set
-     low, and which one you'd tighten and to what.
-
      Milestone 3. -->
 
 ## The Improvement
