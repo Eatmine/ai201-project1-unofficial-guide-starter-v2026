@@ -129,10 +129,13 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
             else:
                 pieces.append(carry)
 
+              # e.g. "guide_marchwood.md" -> "Marchwood", "guide_corry_vale.md" -> "Corry Vale"
+        place = doc.source.rsplit(".", 1)[0].removeprefix("guide_").replace("_", " ").title()
+
         for i, text in enumerate(pieces):
             chunks.append(
                 Chunk(
-                    text=text,
+                    text=f"[{place}]\n{text}",
                     source=doc.source,
                     index=i,
                     produced_by="chunker.py::split_documents",
