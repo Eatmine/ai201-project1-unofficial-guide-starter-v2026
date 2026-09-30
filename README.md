@@ -234,7 +234,7 @@ Yes, you should be concerned. In Elder Ness, the single pub serves food only fro
 
      Milestone 2. -->
 
-| | # | Criterion | Verdict | How I decided |
+| # | Criterion | Verdict | How I decided |
 |---|---|---|---|
 | 1 | Retrieved chunk contains the answer | MISSED | 3/5 in every run. Questions 1 and 5 never had their expects phrase in the retrieved chunks, and retrieval is deterministic, so all three runs were identical. |
 | 2 | Every answer names a source | MISSED | 3/5 in every run. The two misses were refusals ("I don't have enough information"), which name no guide. I counted them as misses because my criterion says every answer must name a source. |
