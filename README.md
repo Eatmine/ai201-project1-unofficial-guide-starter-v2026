@@ -297,14 +297,24 @@ section chunks that don't name their town. That is the one I chose to fix.
 | 4. Chunks between 150 and 750 characters, none heading-only | all chunks | 190–727 | 190–727 | 190–727 | MET |
 | 5. Answers contain the expects phrase | 4 of 5 | 4/5 | 3/5 | 3/5 | MISSED |
 
-**Did it help?**
+**Did it help?** Yes, for the problem it targeted. Criterion 1 went
+from 3/5 to 5/5 in every run: the Kestrelford "When to go" and Marchwood
+"Getting there" chunks went from not being retrieved at all to being the
+top result (distances 0.438 → 0.368 and 0.488 → 0.442). Question 1's
+answer now says "late spring and early autumn", taken straight from the
+right section in the course guide. Criterion 2 improved from 3/5 to 4/5, and criterion 5
+from 1, 1, 2 to 4, 3, 3, though both are still missed.
 
-<!-- Say plainly whether it did, and how you know. If it made things worse,
-     say that — a change that backfired, honestly reported, earns full credit
-     and is more interesting than one that worked. What matters is that you can
-     tell.
+It also cost something. The two questions that aren't about one town
+moved further away: pescatarian 0.510 → 0.546 and closing times
+0.453 → 0.528. The place labels pull retrieval towards chunks from a
+single guide, which helps town questions and hurts cross-guide ones.
 
-     Milestone 4. -->
+Not every gain came from the fix. Question 3 retrieved the same Halden
+Bay chunk before and after, so its switch from "9 pm" to "9pm" is more
+likely the model wording it differently than a result of my change.
+
+
 
 ## What's Still Broken
 
