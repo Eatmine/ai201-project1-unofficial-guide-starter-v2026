@@ -165,23 +165,59 @@ spring" and my source to guide_kestrelford.md.
 
 ## Run Log — Before
 
-<!-- Your five criteria, three runs each. `python run_eval.py --label before`
-     runs the questions, puts the OUT_OF_SCOPE ones through the gate, and
-     writes it all into results/ for you. Targets come from criteria.md; the
-     verdict column is your call.
-
-     Criterion 3 is measured in one deterministic pass rather than three, so
-     the same number goes in all three run columns. That's correct, not lazy.
-
-     Milestone 1. -->
-
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 3/5 | 3/5 | 3/5 | MISSED |
+| 2. Every answer names a source | 5 of 5 | 3/5 | 3/5 | 3/5 | MISSED |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Chunks between 150 and 750 characters, none heading-only | all chunks | 174–711 | 174–711 | 174–711 | MET |
+| 5. Answers contain the expects phrase | 4 of 5 | 1/5 | 1/5 | 2/5 | MISSED |
+
+All output below is from `results/run_2026-09-29_2145_before.md`, produced
+by `run_eval.py::main`, with retrieval from `store.py::search` and chunks
+from `chunker.py::split_documents`.
+
+**Criterion 1** — "When should I plan to visit Kestrelford?", run 1. The
+answer is in the Kestrelford guide's "When to go" section, which was not
+retrieved:
+
+```
+Best distance: 0.4378 (passed the gate)
+Sources retrieved: guide_kestrelford.md, guide_seasons.md, guide_thornby_wells.md, guide_walking.md
+```
+
+**Criterion 2** — "A few of my friends require dietary accommodations, what
+restaurants cater to pescatarians?", run 1. No guide is named:
+
+```
+I don't have enough information to answer your question.
+```
+
+**Criterion 3** — produced by `run_eval.py::check_out_of_scope`, cutoff 0.6:
+
+```
+refused  (best distance 0.803)  What is the capital of Mongolia?
+refused  (best distance 0.734)  Is there an anime clothing store that sells sailor moon shirts?
+refused  (best distance 0.879)  How do I change oil in my toyota camry?
+refused  (best distance 0.750)  Where will Beyonce announce her next album?
+refused  (best distance 0.903)  Do you carry any Beyonce's merch?
+-> gate refused 5 of 5
+```
+
+**Criterion 4** — the summary line from `python app.py index`, before the
+improvement:
+
+```
+chunked  94 chunks, 306 characters on average (shortest 174, longest 711), produced by chunker.py::split_documents
+```
+
+**Criterion 5** — "When planning this vacation should I be concerned about
+restaurants kitchen closing early...", run 1. The answer is correct but
+writes "9 pm", so it does not contain the expects phrase "9pm":
+
+```
+Yes, you should be concerned. In Elder Ness, the single pub serves food only from 12 to 2 and 6 to 8 and is closed on Mondays (guide_elder_ness.md). In Kestrelford, the pubs serve food only between 12 and 2 and again between 6 and 8:30, with nowhere else to eat outside those windows (guide_kestrelford.md). Additionally, in Halden Bay, everything closes by 9 pm and much of it closes entirely from November to February (guide_halden_bay.md).
+```
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
@@ -242,11 +278,11 @@ spring" and my source to guide_kestrelford.md.
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 4/5 | 4/5 | 4/5 | MISSED |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 4. Chunks between 150 and 750 characters, none heading-only | all chunks | 190–727 | 190–727 | 190–727 | MET |
+| 5. Answers contain the expects phrase | 4 of 5 | 4/5 | 3/5 | 3/5 | MISSED |
 
 **Did it help?**
 
